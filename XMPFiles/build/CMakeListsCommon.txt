@@ -329,7 +329,9 @@ set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME  ${XMPFILES_LIB})
 
 # ==============================================================================
 # Define output for this project
-SetOutputPath(${OUTPUT_DIR} 0)
+if(OUTPUT_DIR)
+	SetOutputPath(${OUTPUT_DIR} 0)
+endif()
 
 # ==============================================================================
 # Post build
