@@ -41,7 +41,7 @@ endif()
 set(XMP_PLATFORM_VERSION "generic1.0") # add XMP_BUILDMODE_DIR to follow what other platforms do
 
 add_definitions(-DUNIX_ENV=1)
-set(XMP_PLATFORM_SHORT "generic")
+set(XMP_PLATFORM_SHORT "linux")
 
 set(XMP_PLATFORM_LINK " -lc++abi ${XMP_PLATFORM_LINK}")
 set(XMP_SHARED_COMPILE_FLAGS "-Wno-multichar -D_FILE_OFFSET_BITS=64 -funsigned-char  ${XMP_EXTRA_COMPILE_FLAGS} ${XMP_TOOLCHAIN_COMPILE_FLAGS}")
