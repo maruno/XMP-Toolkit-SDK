@@ -89,9 +89,9 @@ source_group("Source Files\\Core Classes" FILES ${CORECLASS_SOURCE_FILES})
 
 file (GLOB ZUID_SOURCE_FILES ${TP_ZUID_PATH}/*.cpp)
 list (APPEND THIRDPARTY_SOURCE_FILES
-	${TP_EXPAT_PATH}/xmlparse.c
-	${TP_EXPAT_PATH}/xmlrole.c
-	${TP_EXPAT_PATH}/xmltok.c
+	${TP_EXPAT_PATH}/lib/xmlparse.c
+	${TP_EXPAT_PATH}/lib/xmlrole.c
+	${TP_EXPAT_PATH}/lib/xmltok.c
 	${ZUID_SOURCE_FILES}
 	)
 if(WIN32)
@@ -155,7 +155,8 @@ endif()
 # include directories
 include_directories(${XMPROOT_DIR})
 include_directories(${XMPROOT_DIR}/public/include)
-include_directories(${XMPROOT_DIR}/third-party/expat/public/lib)
+include_directories(${TP_EXPAT_PATH})
+include_directories(${TP_EXPAT_PATH}/../public/lib)
 include_directories(${RESOURCE_ROOT}/${XMP_PLATFORM_SHORT})
 if(UNIX AND NOT APPLE AND NOT ${XMP_BUILD_STATIC})
 include_directories(${XMPROOT_DIR}/XMPCore/third-party/boost)

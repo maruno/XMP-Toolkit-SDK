@@ -65,16 +65,14 @@ list (APPEND PUBLIC_HEADER
 	)
 source_group("Header Files\\Public Headers" FILES ${PUBLIC_HEADER})
 
-file (GLOB HEADERFILES_THIRDPARTY_ZLIB ${XMPROOT_DIR}/third-party/zlib/*.h)
-list (REMOVE_ITEM HEADERFILES_THIRDPARTY_ZLIB
-	${CMAKE_CURRENT_SOURCE_DIR}/${XMPROOT_DIR}/third-party/zlib/gzguts.h
-	)
+file (GLOB HEADERFILES_THIRDPARTY_ZLIB ${TP_ZLIB_PATH}/*.h)
+list (REMOVE_ITEM HEADERFILES_THIRDPARTY_ZLIB ${TP_ZLIB_PATH}/gzguts.h)
 source_group("Header Files\\ThirdParty\\zlib" FILES ${HEADERFILES_THIRDPARTY_ZLIB})
 
 list (APPEND FILES_THIRDPARTY_EXPAT
-	${TP_EXPAT_PATH}/xmlparse.c
-	${TP_EXPAT_PATH}/xmlrole.c
-	${TP_EXPAT_PATH}/xmltok.c
+	${TP_EXPAT_PATH}/lib/xmlparse.c
+	${TP_EXPAT_PATH}/lib/xmlrole.c
+	${TP_EXPAT_PATH}/lib/xmltok.c
 	)
 list (APPEND FILES_THIRDPARTY_EXPAT ${RESOURCE_ROOT}/../../XMPCore/resource/${XMP_PLATFORM_SHORT}/expat_config.h)
 source_group("Source Files\\ThirdParty\\expat" FILES ${FILES_THIRDPARTY_EXPAT})
@@ -175,17 +173,17 @@ source_group("Source Files\\Public\\XMPCore" FILES ${PUBLIC_XMPCORE_CLIENTGLUE_F
 endif()
 #endif()
 list (APPEND HEADERFILES_THIRDPARTY_ZLIB
-	${XMPROOT_DIR}/third-party/zlib/adler32.c
-	${XMPROOT_DIR}/third-party/zlib/compress.c
-	${XMPROOT_DIR}/third-party/zlib/crc32.c
-	${XMPROOT_DIR}/third-party/zlib/deflate.c
-	${XMPROOT_DIR}/third-party/zlib/infback.c
-	${XMPROOT_DIR}/third-party/zlib/inffast.c
-	${XMPROOT_DIR}/third-party/zlib/inflate.c
-	${XMPROOT_DIR}/third-party/zlib/inftrees.c
-	${XMPROOT_DIR}/third-party/zlib/trees.c
-	${XMPROOT_DIR}/third-party/zlib/uncompr.c
-	${XMPROOT_DIR}/third-party/zlib/zutil.c
+	${TP_ZLIB_PATH}/adler32.c
+	${TP_ZLIB_PATH}/compress.c
+	${TP_ZLIB_PATH}/crc32.c
+	${TP_ZLIB_PATH}/deflate.c
+	${TP_ZLIB_PATH}/infback.c
+	${TP_ZLIB_PATH}/inffast.c
+	${TP_ZLIB_PATH}/inflate.c
+	${TP_ZLIB_PATH}/inftrees.c
+	${TP_ZLIB_PATH}/trees.c
+	${TP_ZLIB_PATH}/uncompr.c
+	${TP_ZLIB_PATH}/zutil.c
 	)
 source_group("Source Files\\ThirdParty\\zlib" FILES ${HEADERFILES_THIRDPARTY_ZLIB})
 
@@ -223,7 +221,7 @@ include_directories(${XMPROOT_DIR}/public/include)
 include_directories(${XMPROOT_DIR}/public/include/client-glue)
 
 include_directories(${TP_EXPAT_PATH})
-include_directories(${XMPROOT_DIR}/third-party/expat/public/lib)
+include_directories(${TP_EXPAT_PATH}/../public/lib)
 include_directories(${XMPROOT_DIR}/XMPFilesPlugins/api/source)
 include_directories(${RESOURCE_ROOT}/${XMP_PLATFORM_SHORT})
 

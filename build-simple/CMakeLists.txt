@@ -17,6 +17,27 @@ else(ANDROID)
 endif(ANDROID)
 
 
+# Fetch dependencies
+include(FetchContent)
+
+# Expat XML parser
+message("-- Declaring for fetch: libexpat")
+FetchContent_Declare(
+  expat
+  GIT_REPOSITORY "https://github.com/libexpat/libexpat"
+  GIT_TAG "R_2_4_1"
+  SOURCE_SUBDIR "expat")
+
+# Zlib
+message("-- Declaring for fetch: zlib")
+FetchContent_Declare(
+  zlib
+  GIT_REPOSITORY "https://github.com/madler/zlib"
+  GIT_TAG "v1.2.11")
+
+FetchContent_MakeAvailable(expat zlib)
+set(TP_EXPAT_PATH ${expat_SOURCE_DIR}/expat/)
+
 # Enable folder grouping of projects in IDEs
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
