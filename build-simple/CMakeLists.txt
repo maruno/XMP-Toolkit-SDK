@@ -38,6 +38,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(expat zlib)
 set(TP_EXPAT_PATH ${expat_SOURCE_DIR}/expat/)
 
+# Run expat checks manually, as it's build isn't used by XMP-Toolkit
+include(${expat_SOURCE_DIR}/expat/ConfigureChecks.cmake)
+
 # Enable folder grouping of projects in IDEs
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
